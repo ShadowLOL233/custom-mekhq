@@ -688,6 +688,8 @@ public abstract class Part implements IPartWork, ITechnology, ILocatable {
             case ALL -> "IS/Clan";
             case CLAN -> "Clan";
             case IS -> "IS";
+            case OUTER_SPHERE -> "Outer Sphere";
+            case ASCENDED -> "Ascended";
             case UNKNOWN -> "UNKNOWN";
         };
     }
