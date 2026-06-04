@@ -38,6 +38,7 @@ import java.util.List;
 import megamek.common.TechAdvancement;
 import megamek.common.annotations.Nullable;
 import megamek.common.bays.Bay;
+import megamek.common.bays.BayType;
 import megamek.common.compute.Compute;
 import megamek.common.units.Entity;
 import mekhq.campaign.Campaign;
@@ -81,7 +82,7 @@ public class TransportBayPart extends Part {
     @Override
     public String getName() {
         if (null != getBay()) {
-            return getBay().getType() + " Bay #" + bayNumber;
+            return BayType.getTypeForBay(getBay()).getDisplayName() + " Bay #" + bayNumber;
         }
         return super.getName();
     }

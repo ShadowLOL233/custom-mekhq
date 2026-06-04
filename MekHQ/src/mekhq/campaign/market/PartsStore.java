@@ -46,6 +46,7 @@ import megamek.common.equipment.Engine;
 import megamek.common.equipment.EquipmentType;
 import megamek.common.equipment.MiscType;
 import megamek.common.equipment.WeaponType;
+import megamek.common.equipment.enums.MiscTypeFlag;
 import megamek.common.loaders.EntityLoadingException;
 import megamek.common.loaders.MekFileParser;
 import megamek.common.loaders.MekSummary;
@@ -208,7 +209,7 @@ public class PartsStore {
             } else if (equipmentType instanceof MiscType && equipmentType.hasFlag(MiscType.F_BA_EQUIPMENT)
                              && !equipmentType.hasFlag(MiscType.F_BA_MANIPULATOR)) {
             } else if (equipmentType instanceof MiscType && equipmentType.hasFlag(MiscType.F_MASC)) {
-                if (equipmentType.hasSubType(MiscType.S_SUPERCHARGER)) {
+                if (equipmentType.hasFlag(MiscTypeFlag.S_SUPERCHARGER)) {
                     for (int rating = 10; rating <= 400; rating += 5) {
                         // eton 0.5 to 10.5 inclusive
                         for (int i = 1; i <= 21; i++) {

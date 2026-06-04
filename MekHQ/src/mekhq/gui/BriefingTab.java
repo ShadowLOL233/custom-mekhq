@@ -1343,7 +1343,7 @@ public final class BriefingTab extends CampaignGuiTab {
             rp.groundMap = groundMap;
             rp.spaceEnvironment = spaceMap;
             MunitionTree mt = TeamLoadOutGenerator.generateMunitionTree(rp, entityList, "");
-            tlg.reconfigureEntities(entityList, opForFactionCode, mt, rp);
+            tlg.reconfigureEntities(entityList, opForFactionCode, mt, rp, null);
         }
 
         // Finally, reconfigure all allies (but not player entities) as one organization
@@ -1361,7 +1361,7 @@ public final class BriefingTab extends CampaignGuiTab {
         rp.groundMap = groundMap;
         rp.spaceEnvironment = spaceMap;
         MunitionTree mt = TeamLoadOutGenerator.generateMunitionTree(rp, alliedEntities, "");
-        tlg.reconfigureEntities(alliedEntities, allyFactionCodes.get(0), mt, rp);
+        tlg.reconfigureEntities(alliedEntities, allyFactionCodes.get(0), mt, rp, null);
 
     }
 
