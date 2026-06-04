@@ -76,6 +76,7 @@ public class Availability {
             case D -> 1;
             case E -> 2;
             case F -> 3;
+            case G -> 4;
         };
     }
 }

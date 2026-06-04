@@ -7202,6 +7202,8 @@ public class Unit implements ITechnology {
                 partsCost = partsCost.multipliedBy(1.1);
             } else if (rating.equals(TechRating.F)) {
                 partsCost = partsCost.multipliedBy(1.25);
+            } else if (rating.equals(TechRating.G)) {
+                partsCost = partsCost.multipliedBy(1.4);
             }
 
             if ((entity instanceof Tank) && (engine.getEngineType() == Engine.NORMAL_ENGINE)) {
