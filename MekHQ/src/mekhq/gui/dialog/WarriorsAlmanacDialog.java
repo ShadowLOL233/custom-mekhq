@@ -353,6 +353,8 @@ public class WarriorsAlmanacDialog {
             case ALL -> getTextAt(RESOURCE_BUNDLE, isParts
                                                          ? "WarriorsAlmanacDialog.techBaseValue.isClan"
                                                          : "WarriorsAlmanacDialog.techBaseValue.mixed");
+            case OUTER_SPHERE -> "Outer Sphere";
+            case ASCENDED -> "Ascended";
             case UNKNOWN -> getTextAt(RESOURCE_BUNDLE, "WarriorsAlmanacDialog.techBaseValue.unknown");
         };
     }

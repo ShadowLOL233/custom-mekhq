@@ -3647,8 +3647,8 @@ public class Refit extends Part implements IAcquisitionWork {
         int innerSpherePenalty = campaign.getCampaignOptions().get(CampaignOption.IS_ACQUISITION_PENALTY);
         return switch (partTechBase) {
             case CLAN -> clanPenalty;
-            case IS -> innerSpherePenalty;
-            case ALL -> Math.min(clanPenalty, innerSpherePenalty);
+            case IS, OUTER_SPHERE -> innerSpherePenalty;
+            case ALL, ASCENDED -> Math.min(clanPenalty, innerSpherePenalty);
             case UNKNOWN -> 0;
         };
     }
