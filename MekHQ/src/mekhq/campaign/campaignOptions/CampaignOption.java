@@ -880,6 +880,8 @@ public final class CampaignOption<T> {
           of(Double.class, 1.0, "techRatingEPriceMultiplier");
     public static final CampaignOption<Double> TECH_RATING_F_PRICE_MULTIPLIER =
           of(Double.class, 1.0, "techRatingFPriceMultiplier");
+    public static final CampaignOption<Double> TECH_RATING_G_PRICE_MULTIPLIER =
+          of(Double.class, 1.0, "techRatingGPriceMultiplier");
     /** Unofficial: the acquisition multipliers also apply when buying and selling parts, not only units. */
     public static final CampaignOption<Boolean> APPLY_ACQUISITION_MULTIPLIERS_TO_PARTS =
           of(Boolean.class, false, "applyAcquisitionMultipliersToParts");

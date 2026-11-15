@@ -52,12 +52,13 @@ import mekhq.campaign.universe.Faction;
  *     <li>Clan tech bought by a non-Clan campaign: {@link CampaignOption#CLAN_TECH_INVASION_PRICE_MULTIPLIER} from
  *     {@value #CLAN_INVASION_START_YEAR} to {@value #CLAN_INVASION_END_YEAR}, then
  *     {@link CampaignOption#CLAN_TECH_POST_INVASION_PRICE_MULTIPLIER}.</li>
- *     <li>Tech rating E and F bought by a campaign that is neither Clan nor ComStar (Word of Blake counts as
+ *     <li>Tech rating E, F and G bought by a campaign that is neither Clan nor ComStar (Word of Blake counts as
  *     ComStar), from
  *     {@value #SUCCESSION_WARS_START_YEAR} to {@value #SUCCESSION_WARS_END_YEAR}:
  *     {@link CampaignOption#SUCCESSION_WARS_ADVANCED_TECH_PRICE_MULTIPLIER}. Otherwise
- *     {@link CampaignOption#TECH_RATING_E_PRICE_MULTIPLIER} or
- *     {@link CampaignOption#TECH_RATING_F_PRICE_MULTIPLIER}.</li>
+ *     {@link CampaignOption#TECH_RATING_E_PRICE_MULTIPLIER},
+ *     {@link CampaignOption#TECH_RATING_F_PRICE_MULTIPLIER}, or
+ *     {@link CampaignOption#TECH_RATING_G_PRICE_MULTIPLIER}.</li>
  * </ul>
  *
  * <p>Every surcharge that applies stacks additively: ×5 and ×1.25 together make ×5.25. Discounts (multipliers below
@@ -202,15 +203,17 @@ public final class AcquisitionPriceMultipliers {
             }
         }
 
-        if ((techRating == TechRating.E) || (techRating == TechRating.F)) {
+        if ((techRating == TechRating.E) || (techRating == TechRating.F) || (techRating == TechRating.G)) {
             boolean isSuccessionWars = (gameYear >= SUCCESSION_WARS_START_YEAR)
                                              && (gameYear <= SUCCESSION_WARS_END_YEAR);
             if (isSuccessionWars && !isClanFaction && !isComStarFaction) {
                 multipliers.add(campaignOptions.get(CampaignOption.SUCCESSION_WARS_ADVANCED_TECH_PRICE_MULTIPLIER));
             } else if (techRating == TechRating.E) {
                 multipliers.add(campaignOptions.get(CampaignOption.TECH_RATING_E_PRICE_MULTIPLIER));
-            } else {
+            } else if (techRating == TechRating.F) {
                 multipliers.add(campaignOptions.get(CampaignOption.TECH_RATING_F_PRICE_MULTIPLIER));
+            } else {
+                multipliers.add(campaignOptions.get(CampaignOption.TECH_RATING_G_PRICE_MULTIPLIER));
             }
         }
 

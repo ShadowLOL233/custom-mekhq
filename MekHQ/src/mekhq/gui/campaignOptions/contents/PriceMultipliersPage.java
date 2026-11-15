@@ -113,6 +113,8 @@ class PriceMultipliersPage {
     private JSpinner spnTechRatingEPriceMultiplier;
     private JLabel lblTechRatingFPriceMultiplier;
     private JSpinner spnTechRatingFPriceMultiplier;
+    private JLabel lblTechRatingGPriceMultiplier;
+    private JSpinner spnTechRatingGPriceMultiplier;
     private JCheckBox chkApplyAcquisitionMultipliersToParts;
 
     private JPanel pnlUsedPartsMultipliers;
@@ -301,13 +303,23 @@ class PriceMultipliersPage {
                 0.1);
         spnTechRatingFPriceMultiplier.addMouseListener(createTipPanelUpdater("TechRatingFPriceMultiplier"));
 
+        lblTechRatingGPriceMultiplier = new CampaignOptionsLabel("TechRatingGPriceMultiplier",
+              getMetadata(new Version(0, 51, 1), CampaignOptionFlag.CUSTOM_SYSTEM));
+        lblTechRatingGPriceMultiplier.addMouseListener(createTipPanelUpdater("TechRatingGPriceMultiplier"));
+        spnTechRatingGPriceMultiplier = new CampaignOptionsSpinner("TechRatingGPriceMultiplier",
+                1.0,
+                0.1,
+                100,
+                0.1);
+        spnTechRatingGPriceMultiplier.addMouseListener(createTipPanelUpdater("TechRatingGPriceMultiplier"));
+
         // Layout the Panel
         JComponent[] labels = { lblClanTechInvasionPriceMultiplier, lblClanTechPostInvasionPriceMultiplier,
                 lblSuccessionWarsAdvancedTechPriceMultiplier, lblTechRatingEPriceMultiplier,
-                lblTechRatingFPriceMultiplier };
+                lblTechRatingFPriceMultiplier, lblTechRatingGPriceMultiplier };
         JComponent[] controls = { spnClanTechInvasionPriceMultiplier, spnClanTechPostInvasionPriceMultiplier,
                 spnSuccessionWarsAdvancedTechPriceMultiplier, spnTechRatingEPriceMultiplier,
-                spnTechRatingFPriceMultiplier };
+                spnTechRatingFPriceMultiplier, spnTechRatingGPriceMultiplier };
 
         chkApplyAcquisitionMultipliersToParts = new CampaignOptionsCheckBox("ApplyAcquisitionMultipliersToParts",
               getMetadata(new Version(0, 51, 1), CampaignOptionFlag.CUSTOM_SYSTEM));
@@ -469,6 +481,7 @@ class PriceMultipliersPage {
         spnSuccessionWarsAdvancedTechPriceMultiplier.setValue(model.successionWarsAdvancedTechPriceMultiplier);
         spnTechRatingEPriceMultiplier.setValue(model.techRatingEPriceMultiplier);
         spnTechRatingFPriceMultiplier.setValue(model.techRatingFPriceMultiplier);
+        spnTechRatingGPriceMultiplier.setValue(model.techRatingGPriceMultiplier);
         chkApplyAcquisitionMultipliersToParts.setSelected(model.applyAcquisitionMultipliersToParts);
         for (int i = 0; i < Math.min(spnUsedPartPriceMultipliers.length,
                 model.usedPartPriceMultipliers.length); i++) {
@@ -502,6 +515,7 @@ class PriceMultipliersPage {
                 (double) spnSuccessionWarsAdvancedTechPriceMultiplier.getValue();
         model.techRatingEPriceMultiplier = (double) spnTechRatingEPriceMultiplier.getValue();
         model.techRatingFPriceMultiplier = (double) spnTechRatingFPriceMultiplier.getValue();
+        model.techRatingGPriceMultiplier = (double) spnTechRatingGPriceMultiplier.getValue();
         model.applyAcquisitionMultipliersToParts = chkApplyAcquisitionMultipliersToParts.isSelected();
         for (int i = 0; i < Math.min(spnUsedPartPriceMultipliers.length,
                 model.usedPartPriceMultipliers.length); i++) {
